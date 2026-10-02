@@ -19,7 +19,11 @@ class Settings(BaseSettings):
     max_upload_size_mb: int = Field(default=100, ge=1)
 
     gnani_timeout_seconds: float = Field(default=75.0, gt=0)
-
+    
+    supabase_url: str
+    supabase_service_role_key: str
+    supabase_bucket_name: str = "audio-files"
+    
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env",
         env_file_encoding="utf-8",
